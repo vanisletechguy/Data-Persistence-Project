@@ -70,6 +70,7 @@ public class MainManager : MonoBehaviour
             }
             else if (m_GameOver)
             {
+                GameOver();
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -98,7 +99,7 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
-        if(m_Points > m_HighestPoints) {
+        if(m_Points >= m_HighestPoints) {
             m_HighestPoints = m_Points;
             SaveScore();
         }
